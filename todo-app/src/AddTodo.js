@@ -1,13 +1,14 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
 
 class AddTodo extends Component {
+    
     state = {
         content: ''
     };
-
+    
     handleChange = (e) => {
         this.setState({
-            content: e.target.value
+            content: e.target.value 
         });
     };
 
@@ -15,18 +16,16 @@ class AddTodo extends Component {
         e.preventDefault();
         this.props.addTodo(this.state);
         this.setState({
-            content: '' 
+            content: ''
         });
     };
 
-    render() {
+    render(){
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="input-field">
-                        <i className="material-icons prefix blue-text">add_circle_outline</i>
-                        <input onChange={this.handleChange} type="text" value={this.state.content} />
-                    </div>
+                    <label>Add todo :</label>
+                    <input type="text" onChange={this.handleChange} value={this.state.content}/>
                 </form>
             </div>
         );
